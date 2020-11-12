@@ -18,18 +18,11 @@ updateQualityItem : Item -> Item
 updateQualityItem (Item name sellIn quality) =
     let
         quality_ =
-            if name /= "Aged Brie" then
-                if quality <= 0 then
-                    quality
-
-                else
-                    quality - 1
-
-            else if quality < 50 then
-                quality + 1
+            if quality <= 0 then
+                quality
 
             else
-                quality
+                quality - 1
 
         sellIn_ =
             sellIn - 1
