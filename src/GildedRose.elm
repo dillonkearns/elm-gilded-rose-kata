@@ -126,8 +126,4 @@ updateBackstagePasses (Item name sellIn quality) =
             else
                 Item name sellIn_ quality_
     in
-    if name == "Sulfuras, Hand of Ragnaros" then
-        updateSulfuras (Item name sellIn quality)
-
-    else
-        result
+    result
