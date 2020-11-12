@@ -55,10 +55,7 @@ updateQualityItem (Item name sellIn quality) =
         result =
             if sellIn_ < 0 then
                 if name /= "Aged Brie" then
-                    if name == "Backstage passes to a TAFKAL80ETC concert" then
-                        Item name sellIn_ 0
-
-                    else if quality_ > 0 then
+                    if quality_ > 0 then
                         Item name sellIn_ (quality_ - 1)
 
                     else
