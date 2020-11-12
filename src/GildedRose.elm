@@ -19,7 +19,7 @@ updateQualityItem (Item name sellIn quality) =
     let
         quality_ =
             if name /= "Aged Brie" && name /= "Backstage passes to a TAFKAL80ETC concert" then
-                if quality <= 0 || name == "Sulfuras, Hand of Ragnaros" then
+                if quality <= 0 then
                     quality
 
                 else
