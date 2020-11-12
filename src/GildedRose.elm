@@ -77,7 +77,7 @@ updateQualityItem (Item name sellIn quality) =
         updateSulfuras (Item name sellIn quality)
 
     else if name == "Backstage passes to a TAFKAL80ETC concert" then
-        result
+        updateBackstagePasses (Item name sellIn quality)
 
     else
         result
@@ -96,14 +96,7 @@ updateBackstagePasses : Item -> Item
 updateBackstagePasses (Item name sellIn quality) =
     let
         quality_ =
-            if name /= "Aged Brie" && name /= "Backstage passes to a TAFKAL80ETC concert" then
-                if quality <= 0 then
-                    quality
-
-                else
-                    quality - 1
-
-            else if quality < 50 then
+            if quality < 50 then
                 quality
                     + 1
                     + (if name == "Backstage passes to a TAFKAL80ETC concert" then
