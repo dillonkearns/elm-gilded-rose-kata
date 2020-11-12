@@ -72,11 +72,11 @@ updateQualityItem (Item name sellIn quality) =
                 if name /= "Aged Brie" then
                     if name /= "Backstage passes to a TAFKAL80ETC concert" then
                         if quality_ > 0 then
-                            if name /= "Sulfuras, Hand of Ragnaros" then
-                                Item name sellIn_ (quality_ - 1)
+                            if name == "Sulfuras, Hand of Ragnaros" then
+                                Item name sellIn_ quality_
 
                             else
-                                Item name sellIn_ quality_
+                                Item name sellIn_ (quality_ - 1)
 
                         else
                             Item name sellIn_ quality_
