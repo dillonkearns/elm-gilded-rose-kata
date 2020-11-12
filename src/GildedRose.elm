@@ -81,10 +81,14 @@ updateQualityItem (Item name sellIn quality) =
             else
                 Item name sellIn_ quality_
     in
-    result
+    if name == "Sulfuras, Hand of Ragnaros" then
+        result
+
+    else
+        result
 
 
-updateSulfuruas (Item name sellIn quality) =
+updateSulfuras (Item name sellIn quality) =
     let
         quality_ =
             if name /= "Aged Brie" && name /= "Backstage passes to a TAFKAL80ETC concert" then
