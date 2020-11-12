@@ -91,36 +91,7 @@ updateQualityItem (Item name sellIn quality) =
 updateSulfuras (Item name sellIn quality) =
     let
         quality_ =
-            if name /= "Aged Brie" && name /= "Backstage passes to a TAFKAL80ETC concert" then
-                if quality <= 0 || name == "Sulfuras, Hand of Ragnaros" then
-                    quality
-
-                else
-                    quality - 1
-
-            else if quality < 50 then
-                quality
-                    + 1
-                    + (if name == "Backstage passes to a TAFKAL80ETC concert" then
-                        if sellIn < 11 then
-                            if sellIn < 6 && quality < 48 then
-                                2
-
-                            else if quality < 49 then
-                                1
-
-                            else
-                                0
-
-                        else
-                            0
-
-                       else
-                        0
-                      )
-
-            else
-                quality
+            quality
 
         sellIn_ =
             if name == "Sulfuras, Hand of Ragnaros" then
