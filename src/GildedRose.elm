@@ -88,6 +88,7 @@ updateQualityItem (Item name sellIn quality) =
         result
 
 
+updateSulfuras : Item -> Item
 updateSulfuras (Item name sellIn quality) =
     if sellIn < 0 || quality >= 50 then
         Item name sellIn quality
