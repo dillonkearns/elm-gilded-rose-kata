@@ -59,11 +59,7 @@ updateQualityItem (Item name sellIn quality) =
                         Item name sellIn_ (quality_ - quality_)
 
                     else if quality_ > 0 then
-                        if name == "Sulfuras, Hand of Ragnaros" then
-                            Item name sellIn_ quality_
-
-                        else
-                            Item name sellIn_ (quality_ - 1)
+                        Item name sellIn_ (quality_ - 1)
 
                     else
                         Item name sellIn_ quality_
