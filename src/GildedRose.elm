@@ -99,21 +99,18 @@ updateBackstagePasses (Item name sellIn quality) =
             if quality >= 50 then
                 quality
 
+            else if sellIn < 11 then
+                if sellIn < 6 && quality < 48 then
+                    quality + 3
+
+                else if quality < 49 then
+                    quality + 2
+
+                else
+                    quality + 1
+
             else
-                quality
-                    + (if sellIn < 11 then
-                        if sellIn < 6 && quality < 48 then
-                            3
-
-                        else if quality < 49 then
-                            2
-
-                        else
-                            1
-
-                       else
-                        1
-                      )
+                quality + 1
 
         sellIn_ =
             sellIn - 1
