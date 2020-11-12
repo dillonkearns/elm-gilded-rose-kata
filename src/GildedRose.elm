@@ -89,18 +89,8 @@ updateQualityItem (Item name sellIn quality) =
 
 
 updateSulfuras (Item name sellIn quality) =
-    let
-        quality_ =
-            quality
+    if sellIn < 0 || quality >= 50 then
+        Item name sellIn quality
 
-        sellIn_ =
-            sellIn
-
-        result =
-            if sellIn_ < 0 || quality_ >= 50 then
-                Item name sellIn_ quality_
-
-            else
-                Item name sellIn_ (quality_ + 1)
-    in
-    result
+    else
+        Item name sellIn (quality + 1)
