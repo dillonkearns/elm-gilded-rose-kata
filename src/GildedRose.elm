@@ -97,10 +97,7 @@ updateSulfuras (Item name sellIn quality) =
             sellIn
 
         result =
-            if sellIn_ < 0 then
-                Item name sellIn_ quality_
-
-            else if quality_ >= 50 then
+            if sellIn_ < 0 || quality_ >= 50 then
                 Item name sellIn_ quality_
 
             else
