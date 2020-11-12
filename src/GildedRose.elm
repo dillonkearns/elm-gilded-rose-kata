@@ -58,6 +58,9 @@ updateQualityItem (Item name sellIn quality) =
     else if name == "Backstage passes to a TAFKAL80ETC concert" then
         updateBackstagePasses (Item name sellIn quality)
 
+    else if name == "Aged Brie" then
+        updateBrie (Item name sellIn quality)
+
     else
         result
 
