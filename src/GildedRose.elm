@@ -28,12 +28,8 @@ updateQualityItem (Item name sellIn quality) =
             sellIn - 1
 
         result =
-            if sellIn_ < 0 then
-                if quality_ > 0 then
-                    Item name sellIn_ (quality_ - 1)
-
-                else
-                    Item name sellIn_ quality_
+            if sellIn_ < 0 && quality_ > 0 then
+                Item name sellIn_ (quality_ - 1)
 
             else
                 Item name sellIn_ quality_
