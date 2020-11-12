@@ -118,12 +118,9 @@ updateBackstagePasses (Item name sellIn quality) =
 
         sellIn_ =
             sellIn - 1
-
-        result =
-            if sellIn_ < 0 then
-                Item name sellIn_ 0
-
-            else
-                Item name sellIn_ quality_
     in
-    result
+    if sellIn_ < 0 then
+        Item name sellIn_ 0
+
+    else
+        Item name sellIn_ quality_
