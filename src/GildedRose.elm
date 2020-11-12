@@ -82,7 +82,7 @@ updateQualityItem (Item name sellIn quality) =
                 Item name sellIn_ quality_
     in
     if name == "Sulfuras, Hand of Ragnaros" then
-        result
+        updateSulfuras (Item name sellIn quality)
 
     else
         result
