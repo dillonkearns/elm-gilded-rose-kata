@@ -19,11 +19,11 @@ updateQualityItem ((Item name _ _) as item) =
     if name == "Sulfuras, Hand of Ragnaros" then
         updateSulfuras item
 
-    else if name == "Backstage passes to a TAFKAL80ETC concert" then
-        updateBackstagePasses item
-
     else
         case name of
+            "Sulfuras, Hand of Ragnaros" ->
+                updateSulfuras item
+
             "Backstage passes to a TAFKAL80ETC concert" ->
                 updateBackstagePasses item
 
