@@ -59,17 +59,22 @@ decreaseSellIn (Item name sellIn quality) =
     Item name (sellIn - 1) quality
 
 
+increaseQuality : Item -> Item
+increaseQuality (Item name sellIn quality) =
+    Item name sellIn (quality + 1)
+
+
 updateSulfuras : Item -> Item
-updateSulfuras (Item name sellIn quality) =
+updateSulfuras ((Item name sellIn quality) as item) =
     let
         check =
             sellIn >= 0 && quality < 50
     in
     if check then
-        Item name sellIn (quality + 1)
+        increaseQuality item
 
     else
-        Item name sellIn quality
+        item
 
 
 updateBackstagePasses : Item -> Item
