@@ -68,6 +68,9 @@ updateSulfuras (Item name sellIn quality) =
 updateBackstagePasses : Item -> Item
 updateBackstagePasses (Item name sellIn quality) =
     let
+        sellIn_ =
+            sellIn - 1
+
         quality_ =
             if quality >= 50 then
                 quality
@@ -83,9 +86,6 @@ updateBackstagePasses (Item name sellIn quality) =
 
             else
                 quality + 1
-
-        sellIn_ =
-            sellIn - 1
     in
     if sellIn_ < 0 then
         Item name sellIn_ 0
