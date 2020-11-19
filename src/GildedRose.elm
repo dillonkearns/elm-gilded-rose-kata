@@ -24,7 +24,9 @@ updateQualityItem ((Item name _ _) as item) =
             updateBackstagePasses item
 
         "Aged Brie" ->
-            updateBrie item
+            item
+                |> decreaseSellIn
+                |> updateBrie
 
         _ ->
             item
@@ -101,12 +103,9 @@ updateBrie (Item name sellIn quality) =
 
             else
                 quality
-
-        sellIn_ =
-            sellIn - 1
     in
-    if sellIn_ < 0 && quality_ < 50 then
-        Item name sellIn_ (quality_ + 1)
+    if sellIn < 0 && quality_ < 50 then
+        Item name sellIn (quality_ + 1)
 
     else
-        Item name sellIn_ quality_
+        Item name sellIn quality_
