@@ -97,7 +97,11 @@ updateBackstagePasses (Item name sellIn quality) =
             else
                 quality + 1
     in
-    Item name sellIn quality_
+    if sellIn < 0 then
+        Item name sellIn (quality - 1)
+
+    else
+        Item name sellIn quality_
 
 
 resetQuality : Item -> Item
