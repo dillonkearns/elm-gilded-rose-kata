@@ -63,13 +63,13 @@ updateSulfuras : Item -> Item
 updateSulfuras (Item name sellIn quality) =
     let
         check =
-            sellIn < 0 || quality >= 50
+            sellIn >= 0 && quality < 50
     in
     if check then
-        Item name sellIn quality
+        Item name sellIn (quality + 1)
 
     else
-        Item name sellIn (quality + 1)
+        Item name sellIn quality
 
 
 updateBackstagePasses : Item -> Item
