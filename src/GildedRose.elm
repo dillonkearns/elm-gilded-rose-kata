@@ -24,6 +24,9 @@ updateQualityItem ((Item name _ _) as item) =
 
     else
         case name of
+            "Backstage passes to a TAFKAL80ETC concert" ->
+                updateBackstagePasses item
+
             "Aged Brie" ->
                 updateBrie item
 
