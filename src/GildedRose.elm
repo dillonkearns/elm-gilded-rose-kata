@@ -61,7 +61,11 @@ decreaseSellIn (Item name sellIn quality) =
 
 updateSulfuras : Item -> Item
 updateSulfuras (Item name sellIn quality) =
-    if sellIn < 0 || quality >= 50 then
+    let
+        check =
+            sellIn < 0 || quality >= 50
+    in
+    if check then
         Item name sellIn quality
 
     else
