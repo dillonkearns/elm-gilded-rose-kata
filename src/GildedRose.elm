@@ -50,6 +50,11 @@ updateRegularItem (Item name sellIn quality) =
         Item name sellIn_ quality_
 
 
+decreaseSellIn : Item -> Item
+decreaseSellIn (Item name sellIn quality) =
+    Item name (sellIn - 1) quality
+
+
 updateSulfuras : Item -> Item
 updateSulfuras (Item name sellIn quality) =
     if sellIn < 0 || quality >= 50 then
