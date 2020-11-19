@@ -22,9 +22,6 @@ updateQualityItem ((Item name _ _) as item) =
     else if name == "Backstage passes to a TAFKAL80ETC concert" then
         updateBackstagePasses item
 
-    else if name == "Aged Brie" then
-        updateBrie item
-
     else
         case name of
             "Aged Brie" ->
