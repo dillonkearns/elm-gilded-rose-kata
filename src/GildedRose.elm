@@ -16,22 +16,18 @@ updateQuality =
 
 updateQualityItem : Item -> Item
 updateQualityItem ((Item name _ _) as item) =
-    if name == "Sulfuras, Hand of Ragnaros" then
-        updateSulfuras item
+    case name of
+        "Sulfuras, Hand of Ragnaros" ->
+            updateSulfuras item
 
-    else
-        case name of
-            "Sulfuras, Hand of Ragnaros" ->
-                updateSulfuras item
+        "Backstage passes to a TAFKAL80ETC concert" ->
+            updateBackstagePasses item
 
-            "Backstage passes to a TAFKAL80ETC concert" ->
-                updateBackstagePasses item
+        "Aged Brie" ->
+            updateBrie item
 
-            "Aged Brie" ->
-                updateBrie item
-
-            _ ->
-                updateRegularItem item
+        _ ->
+            updateRegularItem item
 
 
 updateRegularItem (Item name sellIn quality) =
