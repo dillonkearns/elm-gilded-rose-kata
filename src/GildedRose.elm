@@ -26,7 +26,9 @@ updateQualityItem ((Item name _ _) as item) =
         updateBrie item
 
     else
-        updateRegularItem item
+        case name of
+            _ ->
+                updateRegularItem item
 
 
 updateRegularItem (Item name sellIn quality) =
