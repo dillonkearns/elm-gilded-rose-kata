@@ -15,7 +15,7 @@ updateQuality =
 
 
 updateQualityItem : Item -> Item
-updateQualityItem ((Item name sellIn quality) as item) =
+updateQualityItem ((Item name _ _) as item) =
     if name == "Sulfuras, Hand of Ragnaros" then
         updateSulfuras item
 
