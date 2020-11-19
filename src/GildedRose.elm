@@ -15,18 +15,18 @@ updateQuality =
 
 
 updateQualityItem : Item -> Item
-updateQualityItem (Item name sellIn quality) =
+updateQualityItem ((Item name sellIn quality) as item) =
     if name == "Sulfuras, Hand of Ragnaros" then
-        updateSulfuras (Item name sellIn quality)
+        updateSulfuras item
 
     else if name == "Backstage passes to a TAFKAL80ETC concert" then
-        updateBackstagePasses (Item name sellIn quality)
+        updateBackstagePasses item
 
     else if name == "Aged Brie" then
-        updateBrie (Item name sellIn quality)
+        updateBrie item
 
     else
-        updateRegularItem (Item name sellIn quality)
+        updateRegularItem item
 
 
 updateRegularItem (Item name sellIn quality) =
