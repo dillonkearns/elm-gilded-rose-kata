@@ -93,6 +93,15 @@ updateBackstagePasses (Item name sellIn quality) =
         Item name sellIn quality_
 
 
+floorQuality : Item -> Item
+floorQuality (Item name sellIn quality) =
+    if sellIn < 0 then
+        Item name sellIn 0
+
+    else
+        Item name sellIn quality
+
+
 updateBrie : Item -> Item
 updateBrie (Item name sellIn quality) =
     let
