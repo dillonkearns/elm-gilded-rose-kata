@@ -30,6 +30,7 @@ updateQualityItem ((Item name _ _) as item) =
             updateRegularItem item
 
 
+updateRegularItem : Item -> Item
 updateRegularItem (Item name sellIn quality) =
     let
         quality_ =
