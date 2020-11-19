@@ -21,7 +21,9 @@ updateQualityItem ((Item name _ _) as item) =
             updateSulfuras item
 
         "Backstage passes to a TAFKAL80ETC concert" ->
-            updateBackstagePasses item
+            item
+                |> decreaseSellIn
+                |> updateBackstagePasses
 
         "Aged Brie" ->
             item
@@ -68,17 +70,14 @@ updateSulfuras (Item name sellIn quality) =
 updateBackstagePasses : Item -> Item
 updateBackstagePasses (Item name sellIn quality) =
     let
-        sellIn_ =
-            sellIn - 1
-
         quality_ =
             if quality >= 50 then
                 quality
 
-            else if sellIn_ >= 10 then
+            else if sellIn >= 10 then
                 quality + 1
 
-            else if sellIn_ < 5 && quality < 48 then
+            else if sellIn < 5 && quality < 48 then
                 quality + 3
 
             else if quality < 49 then
@@ -87,11 +86,11 @@ updateBackstagePasses (Item name sellIn quality) =
             else
                 quality + 1
     in
-    if sellIn_ < 0 then
-        Item name sellIn_ 0
+    if sellIn < 0 then
+        Item name sellIn 0
 
     else
-        Item name sellIn_ quality_
+        Item name sellIn quality_
 
 
 updateBrie : Item -> Item
