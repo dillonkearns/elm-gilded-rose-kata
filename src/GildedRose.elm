@@ -24,6 +24,7 @@ updateQualityItem ((Item name _ _) as item) =
             item
                 |> decreaseSellIn
                 |> updateBackstagePasses
+                |> floorQuality
 
         "Aged Brie" ->
             item
@@ -86,7 +87,7 @@ updateBackstagePasses (Item name sellIn quality) =
             else
                 quality + 1
     in
-    floorQuality (Item name sellIn quality_)
+    Item name sellIn quality_
 
 
 floorQuality : Item -> Item
