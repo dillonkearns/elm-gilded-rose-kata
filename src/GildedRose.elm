@@ -59,9 +59,13 @@ decreaseSellIn (Item name sellIn quality) =
     Item name (sellIn - 1) quality
 
 
-increaseQuality : Item -> Item
-increaseQuality (Item name sellIn quality) =
-    Item name sellIn (quality + 1)
+increaseQuality : Bool -> Item -> Item
+increaseQuality check ((Item name sellIn quality) as item) =
+    if check then
+        Item name sellIn (quality + 1)
+
+    else
+        item
 
 
 updateSulfuras : Item -> Item
@@ -70,11 +74,7 @@ updateSulfuras ((Item name sellIn quality) as item) =
         check =
             sellIn >= 0 && quality < 50
     in
-    if check then
-        increaseQuality item
-
-    else
-        item
+    increaseQuality check item
 
 
 updateBackstagePasses : Item -> Item
