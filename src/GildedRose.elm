@@ -90,13 +90,18 @@ updateBackstagePasses (Item name sellIn quality) =
     Item name sellIn quality_
 
 
+resetQuality : Item -> Item
+resetQuality (Item name sellIn _) =
+    Item name sellIn 0
+
+
 floorQuality : Item -> Item
-floorQuality (Item name sellIn quality) =
+floorQuality ((Item _ sellIn _) as item) =
     if sellIn < 0 then
-        Item name sellIn 0
+        resetQuality item
 
     else
-        Item name sellIn quality
+        item
 
 
 updateBrie : Item -> Item
