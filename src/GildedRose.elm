@@ -70,11 +70,7 @@ increaseQuality check ((Item name sellIn quality) as item) =
 
 updateSulfuras : Item -> Item
 updateSulfuras ((Item name sellIn quality) as item) =
-    let
-        check =
-            sellIn >= 0 && quality < 50
-    in
-    increaseQuality check item
+    increaseQuality (checkSellInWithLowQuality item) item
 
 
 checkSellInWithLowQuality : Item -> Bool
