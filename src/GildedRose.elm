@@ -16,24 +16,6 @@ updateQuality =
 
 updateQualityItem : Item -> Item
 updateQualityItem (Item name sellIn quality) =
-    let
-        quality_ =
-            if quality <= 0 then
-                quality
-
-            else
-                quality - 1
-
-        sellIn_ =
-            sellIn - 1
-
-        result =
-            if sellIn_ < 0 && quality_ > 0 then
-                Item name sellIn_ (quality_ - 1)
-
-            else
-                Item name sellIn_ quality_
-    in
     if name == "Sulfuras, Hand of Ragnaros" then
         updateSulfuras (Item name sellIn quality)
 
@@ -44,7 +26,26 @@ updateQualityItem (Item name sellIn quality) =
         updateBrie (Item name sellIn quality)
 
     else
-        result
+        updateRegularItem (Item name sellIn quality)
+
+
+updateRegularItem (Item name sellIn quality) =
+    let
+        quality_ =
+            if quality <= 0 then
+                quality
+
+            else
+                quality - 1
+
+        sellIn_ =
+            sellIn - 1
+    in
+    if sellIn_ < 0 && quality_ > 0 then
+        Item name sellIn_ (quality_ - 1)
+
+    else
+        Item name sellIn_ quality_
 
 
 updateSulfuras : Item -> Item
