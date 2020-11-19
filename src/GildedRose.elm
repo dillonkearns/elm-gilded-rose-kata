@@ -77,6 +77,11 @@ updateSulfuras ((Item name sellIn quality) as item) =
     increaseQuality check item
 
 
+checkSellInWithLowQuality : Item -> Bool
+checkSellInWithLowQuality (Item _ sellIn quality) =
+    sellIn >= 0 && quality < 50
+
+
 updateBackstagePasses : Item -> Item
 updateBackstagePasses (Item name sellIn quality) =
     let
