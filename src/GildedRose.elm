@@ -27,7 +27,9 @@ updateQualityItem ((Item name _ _) as item) =
             updateBrie item
 
         _ ->
-            updateRegularItem item
+            item
+                |> decreaseSellIn
+                |> updateRegularItem
 
 
 updateRegularItem : Item -> Item
@@ -39,15 +41,12 @@ updateRegularItem (Item name sellIn quality) =
 
             else
                 quality - 1
-
-        sellIn_ =
-            sellIn - 1
     in
-    if sellIn_ < 0 && quality_ > 0 then
-        Item name sellIn_ (quality_ - 1)
+    if sellIn < 0 && quality_ > 0 then
+        Item name sellIn (quality_ - 1)
 
     else
-        Item name sellIn_ quality_
+        Item name sellIn quality_
 
 
 decreaseSellIn : Item -> Item
