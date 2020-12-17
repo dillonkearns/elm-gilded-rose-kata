@@ -4,7 +4,7 @@
   "description": "Elm Gilded Rose Kata",
   "main": "main.js",
   "scripts": {
-    "test": "elm-test",
+    "test": "elm-test && elm-coverage",
     "coverage": "elm-coverage",
     "test-watch": "npm test; fswatch -0 src tests -e '.*' -i \\.elm$ | xargs -0 -n1 -I{} npm test"
   },
